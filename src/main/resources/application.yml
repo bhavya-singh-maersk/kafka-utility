@@ -1,0 +1,5 @@
+azure:
+  storage:
+    account-name: default #claimscheckpayloads
+    account-key: default #8OD1vjEqe7ux9m7UiBWImDMfmsWfu52rjkdsHoQ6gUrDyNThUt9U7UDeeEZWssp/IaVWv/CTXv8spi0Kug9gpA==
+    blob-endpoint: https://default.core.windows.net

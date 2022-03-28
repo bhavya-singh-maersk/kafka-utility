@@ -1,2 +1,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.maersk.kafkautility.aspect.RetryAspect
+com.maersk.kafkautility.aspect.RetryAspect,\
+com.maersk.kafkautility.service.MessagePublishHandler,\
+com.maersk.kafkautility.service.RetryService,\
+com.maersk.kafkautility.service.AzureBlobServiceImpl,\
+com.maersk.kafkautility.service.KafkaProducerServiceImpl

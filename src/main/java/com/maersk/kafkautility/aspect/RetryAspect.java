@@ -6,17 +6,11 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.annotation.Order;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.retry.support.RetrySynchronizationManager;
-import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
@@ -41,29 +35,6 @@ public class RetryAspect<T> {
 	@Pointcut("@annotation(com.maersk.kafkautility.annotations.RetryHandler)")
 	public void annotatedMethod(){
 	}
-
-	/*//@After(value = "annotatedMethod()")
-	public void retryAdvice(JoinPoint joinPoint) {
-		log.info("Inside retryAdvice");
-		try {
-			var retryTopic = context.getEnvironment().resolvePlaceholders(RETRY_TOPIC_PLACEHOLDER);
-			log.info("retryTopic: {}", retryTopic);
-			var args = joinPoint.getArgs();
-			if (Objects.nonNull(args[0])) {
-				var message = (T) args[0];
-				log.info("message: {}", message);
-				ProducerRecord<String, T> producerRecord = new ProducerRecord<>(retryTopic, message);
-				var kafkaHeaders = producerRecord.headers();
-				if (Objects.nonNull(args[1])) {
-					kafkaHeaders.add("X-DOCBROKER-Correlation-ID", args[1].toString().getBytes(StandardCharsets.UTF_8));
-				}
-				messagePublishHandler.publishOnTopic(producerRecord);
-			}
-		} catch (Exception ex)
-		{
-			log.error("Exception in retry advice ", ex);
-		}
-	}*/
 
 	@AfterThrowing(value = "annotatedMethod()")
 	public void retryAdvice(JoinPoint joinPoint) {
