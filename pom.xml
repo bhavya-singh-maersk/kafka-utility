@@ -15,6 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<audit4j.version>2.5.0</audit4j.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -58,6 +59,14 @@
 			<artifactId>spring-kafka-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>-->
 		<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
 		<dependency>
 			<groupId>com.opencsv</groupId>
@@ -68,6 +77,45 @@
 			<groupId>org.openjdk.jol</groupId>
 			<artifactId>jol-core</artifactId>
 			<version>0.10</version>
+		</dependency>
+		<!--<dependency>
+			<groupId>net.apmoller.crb.ohm.logger</groupId>
+			<artifactId>ohm-logger</artifactId>
+			<version>1.0.0</version>
+		</dependency>-->
+		<!--<dependency>
+			<groupId>org.audit4j</groupId>
+			<artifactId>audit4j-core</artifactId>
+			<version>${audit4j.version}</version>
+		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.audit4j/audit4j-core -->
+		<!--<dependency>
+			<groupId>org.audit4j</groupId>
+			<artifactId>audit4j-core</artifactId>
+			<version>2.5.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		&lt;!&ndash; https://mvnrepository.com/artifact/org.audit4j/audit4j-spring &ndash;&gt;
+		<dependency>
+			<groupId>org.audit4j</groupId>
+			<artifactId>audit4j-spring</artifactId>
+			<version>2.5.0</version>
+		</dependency>-->
+
+		<!--<dependency>
+			<groupId>org.audit4j</groupId>
+			<artifactId>audit4j-db</artifactId>
+			<version>${audit4j.version}</version>
+		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 
